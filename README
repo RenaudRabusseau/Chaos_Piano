@@ -1,0 +1,45 @@
+🎹 Chaos Piano: Phase 1 - Proximity Control Logic
+
+📜 Project Overview
+
+The Chaos Piano is an interactive, multi-sensory art installation designed for the Fondation du Doute. It transforms physical movement into an orchestration of light, sound, and vibration. This repository documents the evolution of the system from a bench prototype to a full-scale industrial control-command architecture.
+
+The "Chaos" Logic
+The system functions as an open-loop control-command system. Using an ultrasonic sensor, it monitors the distance of visitors. As a visitor approaches, the system increases the intensity and frequency of the feedback (LED strobing and auditory signals), creating a "chaotic" response that scales with proximity.
+
+
+🛠 Current Technical State (Phase 1)
+The project is currently in the Proof of Concept (PoC) stage, focusing on high-power switching and sensor data filtration.
+1. Hardware Stack
+Component               Industrial Role                 Specification
+Microcontroller         Logic Unit (PLC equivalent)     Arduino Uno R3 (Atmega328P)
+Sensor                  Data Acquisition                HC-SR04 (Ultrasonic)
+Actuator                Power Output                    12V High-Brightness LED Strip
+Power Interface         Output Stage                    IRLZ44N MOSFET (Logic Level)
+Monitoring              Diagnostics                     Eventek ET580 Digital Multimeter
+
+2. Power Architecture
+To handle the 12V load while protecting the 5V microcontroller, the system utilizes a Common Ground architecture.
+Logic Level Switching: An IRLZ44N MOSFET is used as a low-side switch, allowing the 5V Arduino pins to control the 12V power rail directly.
+Signal Filtration: The code implements a Low-Pass Filter (Software Smoothing) to eliminate ultrasonic "noise" and ensure stable LED transitions.
+
+🚀 Final Project Vision
+The finished exhibit will scale this logic across a full-sized piano with the following expanded capabilities:
+Haptic Feedback: Three 6V vibrating motors attached to the piano strings to create physical resonance.
+Audio Manipulation: Piezoelectric microphones capturing raw string vibrations, processed through the Arduino with glitch, distortion, and flanger effects.
+Advanced Processing: Transitioning to an RP2040-Zero (Dual-core ARM) to handle multi-threaded sensor acquisition and real-time audio processing.
+Industrial Standards: Implementation of a Watchdog Timer for high availability and Opto-couplers for complete electrical isolation between power and logic stages.
+
+📂 Repository Contents
+/Code: Optimized C++ firmware for the proximity-to-strobe logic.
+/Hardware: Wiring tables and schematics (Fritzing/Draw.io).
+/Docs: Technical datasheets for the IRLZ44N and HC-SR04.
+
+🎓 Academic Context
+This project serves as a practical application of the Purdue Model (Levels 0 and 1). It demonstrates competency in:
+Physical Interaction (Level 0): Interfacing sensors with a dynamic environment.
+Control Logic (Level 1): Programming PWM modulation and interrupt-driven logic.
+Hardware Safety: Implementing flyback protection (1N4007 diodes) for inductive motor loads.
+
+
+

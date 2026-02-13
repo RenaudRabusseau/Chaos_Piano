@@ -1,0 +1,20 @@
+# PlatformIO temporary build folders
+.pio/
+.vscode/
+platformio.ini
+
+# Compilation outputs
+*.o
+*.out
+*.hex
+
+# KiCad temporary/backup files
+*.kicad_prl
+*.kicad_pcb-bak
+*-backups/
+fp-info-cache
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
