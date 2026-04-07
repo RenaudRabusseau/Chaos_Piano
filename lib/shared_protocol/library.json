@@ -1,0 +1,5 @@
+{
+    "name": "shared_protocol",
+    "version": "1.0.0",
+    "description": "Shared I2C protocol definitions for Chaos Piano dual-brain architecture"
+}
